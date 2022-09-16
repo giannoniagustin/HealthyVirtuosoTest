@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">@color/black</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +8,22 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- O -->
+    <color name="color_orange_FF2A2A">#FF2A2A</color>
+    <color name="color_orange_F00D4A">#F00D4A</color>
+
+    <!-- G -->
+    <color name="color_gray_D1D1D1">#D1D1D1</color>
+    <color name="color_gray_E2E2E2">#E2E2E2</color>
+    <color name="color_gray_707070">#707070</color>
+    <color name="color_gray_EEEEEE">#EEEEEE</color>
+    <color name="color_gray_DFDFDF">#DFDFDF</color>
+    <color name="color_gray_A5A5A5">#A5A5A5</color>
+    <color name="color_green_0AC24D">#0AC24D</color>
+
+
+    <!-- P -->
+
+    <color name="color_pink_F00F48">#F00F48</color>
+    <color name="color_pink_D6405D">#D6405D</color>
 </resources>

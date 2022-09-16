@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Healthy Virtuoso Test</string>
+    <string name="movies">Movies</string>
+    <string name="movieDetail">Movie Detail</string>
 </resources>
