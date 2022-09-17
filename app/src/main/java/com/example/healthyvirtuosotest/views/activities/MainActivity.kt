@@ -6,7 +6,9 @@ import com.example.healthyvirtuosotest.R
 import com.example.healthyvirtuosotest.core.abstraction.activity.BaseActivity
 import com.example.healthyvirtuosotest.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

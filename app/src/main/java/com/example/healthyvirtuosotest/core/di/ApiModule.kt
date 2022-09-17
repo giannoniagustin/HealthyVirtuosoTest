@@ -49,8 +49,5 @@ object ApiModule {
         .client(okHttpClient)
         .build()
 
-    @Singleton
-    @Provides
-    fun provideMoviesApiService(retrofit: Retrofit): MoviesServices =
-        retrofit.create(MoviesServices::class.java)
+
 }
