@@ -2,4 +2,6 @@
     <string name="app_name">Healthy Virtuoso Test</string>
     <string name="movies">Movies</string>
     <string name="movieDetail">Movie Detail</string>
+    <string name="error_unknown">Unknown</string>
+    <string name="api_success">Success</string>
 </resources>

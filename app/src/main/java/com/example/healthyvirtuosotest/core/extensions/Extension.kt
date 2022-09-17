@@ -29,9 +29,12 @@ import com.example.healthyvirtuosotest.Constants.MIN_TIME_BETWEEN_CLICK
 import com.example.healthyvirtuosotest.R
 import com.example.healthyvirtuosotest.core.abstraction.adapters.CollectionAdapter
 import com.example.healthyvirtuosotest.core.abstraction.adapters.Holder
+import com.example.healthyvirtuosotest.core.enums.ErrorCode
+import com.example.healthyvirtuosotest.core.exception.model.ErrorApi
 import com.example.healthyvirtuosotest.core.view.dialog.BaseDialogFragment
 import com.example.healthyvirtuosotest.core.view.toolbar.AppBarLayoutBehavior
 import com.google.android.material.appbar.AppBarLayout
+import com.google.gson.Gson
 import java.math.BigDecimal
 import java.text.DecimalFormat
 import kotlin.properties.ReadWriteProperty
@@ -273,4 +276,91 @@ fun <M, H : Holder> RecyclerView.initGrid(
     this.layoutManager = GridLayoutManager(context, span, orientation, false)
     this.adapter = dataSet
     dataSet.setOnItemClickListener(onItemClickListener = onItemClickListener)
+}
+
+
+fun decodeErrorApiToException(errorCode: ErrorCode): Exception {
+    return Exception(
+        Gson().toJson(
+            decodeErrorApi(errorCode = errorCode)
+        )
+    )
+}
+
+
+fun decodeErrorApi(errorCode: ErrorCode): ErrorApi {
+
+    return when (errorCode.code) {
+
+        ErrorCode.SUCCES.code -> {
+            ErrorApi(
+                statusCode = 200,
+                devError = "Success.",
+                errorMessage = "Success",
+                codeError = ErrorCode.SUCCES
+            )
+        }
+
+        ErrorCode.UNKNOWN.code -> {
+            ErrorApi(
+                statusCode = 500,
+                devError = "Unknown error",
+                errorMessage = ErrorCode.UNKNOWN.message.toString(),
+                codeError = ErrorCode.UNKNOWN
+            )
+        }
+
+        ErrorCode.INVALID_SERVICE.code -> {
+            ErrorApi(
+                statusCode = 501,
+                devError = "Invalid Service",
+                errorMessage = ErrorCode.INVALID_SERVICE.message.toString(),
+                codeError = ErrorCode.INVALID_SERVICE
+            )
+        }
+
+        ErrorCode.AUTH_FAILED.code -> {
+            ErrorApi(
+                statusCode = 502,
+                devError = "Auth Failed",
+                errorMessage = ErrorCode.AUTH_FAILED.message.toString(),
+                codeError = ErrorCode.AUTH_FAILED
+            )
+        }
+
+
+        else -> {
+            ErrorApi(
+                statusCode = 500,
+                devError = "Unknown error",
+                errorMessage = ErrorCode.UNKNOWN.message.toString(),
+                codeError = ErrorCode.UNKNOWN
+            )
+        }
+    }
+
+}
+
+fun decodeExceptionApi(exception: Exception): Exception {
+    return Exception(
+        Gson().toJson(exception)
+    )
+}
+
+fun decodeErrorApi(exception: Exception, code: ErrorCode): Exception {
+    return Exception(
+        Gson().toJson(
+            ErrorApi(
+                statusCode = 500,
+                errorMessage = exception.localizedMessage,
+                devError = exception.localizedMessage,
+                codeError = code
+            )
+        )
+    )
+}
+
+
+fun decodeErrorApi(exception: Exception): ErrorApi {
+    return Gson().fromJson(Gson().toJson(exception), ErrorApi::class.java)
 }

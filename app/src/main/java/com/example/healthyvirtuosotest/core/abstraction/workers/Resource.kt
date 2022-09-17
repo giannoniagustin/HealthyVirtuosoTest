@@ -1,10 +1,12 @@
 package com.example.healthyvirtuosotest.core.abstraction.workers
 
+import com.example.healthyvirtuosotest.core.exception.model.ErrorApi
 
- class Resource<out T>(
+
+class Resource<out T>(
     var status: Status,
     val data: T?,
-    val errorApi: String?=null,
+    val errorApi: ErrorApi?=null,
     val message: String?=null,
     val exception: Exception?=null
 ) {
@@ -32,7 +34,7 @@ package com.example.healthyvirtuosotest.core.abstraction.workers
             message: String,
             data: T? = null,
             exception: Exception? = null,
-            errorApi: String? = null,
+            errorApi: ErrorApi? = null,
             status: Status = Status.ERROR
         ): Resource<T> {
             return Resource(
@@ -57,7 +59,7 @@ package com.example.healthyvirtuosotest.core.abstraction.workers
             message: String,
             data: T? = null,
             exception: Exception? = null,
-            errorApi: String? = null,
+            errorApi: ErrorApi? = null,
             status: Status = Status.DISCONNECTED
         ): Resource<T> {
             return Resource(
