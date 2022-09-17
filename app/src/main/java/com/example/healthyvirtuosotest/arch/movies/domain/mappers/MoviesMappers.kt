@@ -8,16 +8,18 @@ import com.example.healthyvirtuosotest.core.extensions.decodeErrorApi
 import com.example.healthyvirtuosotest.core.extensions.decodeErrorApiToException
 import com.example.healthyvirtuosotest.core.extensions.decodeExceptionApi
 import com.google.gson.Gson
+import javax.inject.Inject
 
-class MoviesMappers : BaseDataSource() {
-    suspend fun movies(response: MutableList<Movie>) = executeProcess {
+class MoviesMappers @Inject constructor() : BaseDataSource() {
+    suspend fun movies(response: List<Movie>) = executeProcess {
         Resource.success(
-            data = response,
+          //  data = response,
+            data = Movie.dummyMovies(),
             status = Resource.Status.SUCCESS
         )
     }
 
-    suspend fun moviesError(response: Resource<MutableList<Movie>>) = executeProcess {
+    suspend fun moviesError(response: Resource<List<Movie>>) = executeProcess {
 
         val decode = Gson().toJson(response.exception)
 

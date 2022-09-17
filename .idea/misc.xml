@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13043478260869565" />
+        <entry key="app/src/main/res/font/font_cert.xml" value="0.13148148148148148" />
+        <entry key="app/src/main/res/font/poppins.xml" value="0.13148148148148148" />
+        <entry key="app/src/main/res/font/poppins_bold.xml" value="0.13148148148148148" />
+        <entry key="app/src/main/res/font/poppins_semi_bold.xml" value="0.13148148148148148" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_map.xml" value="0.11203703703703703" />
-        <entry key="app/src/main/res/layout/fragment_movies.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_movies.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_state_service.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout_progress.xml" value="0.13043478260869565" />
         <entry key="app/src/main/res/layout/location_update_card.xml" value="0.11203703703703703" />
-        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/layout/movie_card.xml" value="0.375" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -18,5 +23,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.335" />
+      </ProjectState>
+    </option>
   </component>
 </project>

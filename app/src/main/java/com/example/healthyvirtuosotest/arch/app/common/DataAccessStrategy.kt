@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.healthyvirtuosotest.core.abstraction.workers.Resource
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flow
 
 
 fun <T> performGetOperation(networkCall: suspend () -> Resource<T>): LiveData<Resource<T>> {
@@ -57,6 +59,7 @@ fun <A> serviceOperation(
 
     return liveData(Dispatchers.IO) {
         emit(Resource.loading())
+        delay(3000)
         val responseStatus: Resource<A> = networkCall.invoke()
         if (responseStatus.status == Resource.Status.ERROR) {
             emit(parseError.invoke(responseStatus))
@@ -65,3 +68,19 @@ fun <A> serviceOperation(
         }
     }
 }
+
+
+fun <A> serviceOperationFlow(
+    networkCall: suspend () -> Resource<A>,
+    parseError: suspend (Resource<A>) -> Resource<A>
+) = flow<Resource<A>> {
+    emit(Resource.loading())
+    val responseStatus: Resource<A> = networkCall.invoke()
+    if (responseStatus.status == Resource.Status.ERROR) {
+        emit(parseError.invoke(responseStatus))
+    } else {
+        emit(responseStatus)
+    }
+
+}
+

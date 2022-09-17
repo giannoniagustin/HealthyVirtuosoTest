@@ -7,25 +7,6 @@ import retrofit2.Response
 
 abstract class BaseDataSource {
 
-    @Deprecated("no use in new api")
-    @Suppress("BlockingMethodInNonBlockingContext")
-    protected suspend fun <T> getResult(call: suspend () -> T): Resource<T> {
-        return try {
-            val response = call()
-            if (response != null) {
-                Resource.success(response, Resource.Status.SUCCESS)
-            } else {
-                error(
-                    message = "response null",
-                    exception = Exception("response null"),
-                    data = response
-                )
-            }
-        } catch (exception: Exception) {
-            error(message = exception.toString(), exception = exception, data = null)
-        }
-    }
-
     @Suppress("BlockingMethodInNonBlockingContext")
     protected suspend fun <T> getResultServices(call: suspend () -> Response<T>): Resource<T> {
         try {
@@ -41,16 +22,6 @@ abstract class BaseDataSource {
         } catch (exception: Exception) {
             return error(message = exception.toString(), exception = exception)
         }
-    }
-
-    @Deprecated("no use in new api")
-    private fun <T> error(message: String, exception: Exception, data: T?): Resource<T> {
-        Log.e("remoteDataSource", "$message $exception")
-        return Resource.error(
-            "Network call has failed for a following reason: $message",
-            exception = exception,
-            data = data
-        )
     }
 
     private fun <T> error(message: String, exception: Exception): Resource<T> {

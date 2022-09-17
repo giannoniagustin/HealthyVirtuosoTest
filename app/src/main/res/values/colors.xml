@@ -8,11 +8,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- B -->
+    <color name="color_black_222222">#222222</color>
+    <color name="colorBlackFilter">#121212</color>
+
+
     <!-- O -->
     <color name="color_orange_FF2A2A">#FF2A2A</color>
     <color name="color_orange_F00D4A">#F00D4A</color>
 
     <!-- G -->
+    <color name="colorGrayText">#2b2b2b</color>
     <color name="color_gray_D1D1D1">#D1D1D1</color>
     <color name="color_gray_E2E2E2">#E2E2E2</color>
     <color name="color_gray_707070">#707070</color>

@@ -13,15 +13,13 @@ import javax.inject.Inject
 @HiltViewModel
 class MoviesViewModel @Inject constructor(private val moviesUseCase: MoviesUseCase) : ViewModel() {
     private val moviesDispatcher: MutableLiveData<Map<Any, Any>> = MutableLiveData()
-    var paymentsForm: LiveData<Resource<MutableList<Movie>>> =
+    var movies: LiveData<Resource<List<Movie>>> =
         moviesDispatcher.switchMap {
             moviesUseCase.getPopularMovies()
         }
 
     fun getPopularMovies() {
-
         moviesDispatcher.value = mapOf("parameter" to "")
-
     }
 
 }
