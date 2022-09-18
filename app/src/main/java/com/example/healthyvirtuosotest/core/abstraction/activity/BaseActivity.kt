@@ -127,7 +127,11 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(),
         if (toolbar == null) this.toolbar = findViewById(toolbarId) else this.toolbar = toolbar
         if (this.toolbar != null) {
             setSupportActionBar(this.toolbar)
-            if (supportActionBar != null) supportActionBar!!.setDisplayShowTitleEnabled(false)
+            if (supportActionBar != null) {
+                supportActionBar!!.setDisplayShowTitleEnabled(false)
+                supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+                supportActionBar!!.setDisplayShowHomeEnabled(false);
+            }
             window.statusBarColor = ContextCompat.getColor(this.toolbar!!.context, statusBarColor)
         }
     }

@@ -4,16 +4,20 @@ buildscript {
         google()
         mavenCentral()
     }
+    ext.retrofit_version = '2.9.0'
+    ext.httplogging_version = '5.0.0-alpha.10'
+    ext.json_version = '2.9.1'
+    ext.junit_version = '4.13.2'
+    ext. nav_version = "2.5.1"
+
     dependencies {
         classpath 'com.android.tools.build:gradle:7.2.2'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10'
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.42'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 
-    ext.retrofit_version = '2.9.0'
-    ext.httplogging_version = '4.9.0'
-    ext.json_version = '2.8.6'
-    ext.junit_version = '4.13.2'
+
 
 }
 task clean(type: Delete) {

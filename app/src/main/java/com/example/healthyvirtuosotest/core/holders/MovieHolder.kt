@@ -1,37 +1,24 @@
-package com.example.healthyvirtuosotest.views.fragments
+package com.example.healthyvirtuosotest.core.holders
 
 import android.graphics.drawable.Drawable
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.healthyvirtuosotest.R
-import com.example.healthyvirtuosotest.core.abstraction.fragments.BaseFragment
+import com.example.healthyvirtuosotest.arch.movies.domain.model.Movie
+import com.example.healthyvirtuosotest.core.abstraction.adapters.Holder
 import com.example.healthyvirtuosotest.core.extensions.gone
-import com.example.healthyvirtuosotest.databinding.FragmentMovieDetailBinding
-import com.example.healthyvirtuosotest.views.activities.MainActivity
+import com.example.healthyvirtuosotest.databinding.MovieCardBinding
 
-class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivity>() {
 
-    private val args: MovieDetailFragmentArgs by navArgs()
-
-    override fun getBindingClass() = FragmentMovieDetailBinding.inflate(layoutInflater)
-
-    override fun onCreateView(savedInstanceState: Bundle?) {}
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = getBindingClass()
-        binding.movie = args.movie
+open class MovieHolder(private val item: MovieCardBinding) : Holder(item) {
+    open fun bind(movie: Movie) {
+        item.tvItemMovie.text = movie.title
+        item.tvHomepageValue.text = movie.homepage
+        item.tvOriginalTitleValue.text = movie.originalTitle
+        item.tvLanguagueTextValue.text = movie.originalLanguage
         val requestListener = object : RequestListener<Drawable> {
             override fun onLoadFailed(
                 e: GlideException?,
@@ -39,6 +26,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivit
                 target: Target<Drawable>?,
                 isFirstResource: Boolean
             ): Boolean {
+                item.pBar.gone()
                 return false
             }
 
@@ -49,16 +37,14 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivit
                 dataSource: DataSource?,
                 isFirstResource: Boolean
             ): Boolean {
+                item.pBar.gone()
                 return true
             }
         }
-        Glide.with(this)
-            .load(args.movie.posterPath)
+        Glide.with(itemView.context)
+            .load(movie.posterPath)
             .error(R.mipmap.ic_image_not_found)
             .listener(requestListener)
-            .into(binding.imPoster)
-
-
-        return binding.root
+            .into(item.imgMovie)
     }
 }

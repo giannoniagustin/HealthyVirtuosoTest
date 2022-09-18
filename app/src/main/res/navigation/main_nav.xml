@@ -8,11 +8,23 @@
     <fragment
         android:id="@+id/rootFragment"
         android:name="com.example.healthyvirtuosotest.views.fragments.MoviesFragment"
-        android:label="fragment_root"
-        tools:layout="@layout/fragment_movies" />
+        android:label="Movies"
+        tools:layout="@layout/fragment_movies">
+        <action
+            android:id="@+id/action_rootFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
     <fragment
-        android:id="@+id/mapFragment"
+        android:id="@+id/movieDetailFragment"
         android:name="com.example.healthyvirtuosotest.views.fragments.MovieDetailFragment"
-        android:label="fragment_map"
-        tools:layout="@layout/fragment_movie_detail" />
+        android:label="Movie Detail"
+        tools:layout="@layout/fragment_movie_detail">
+        <argument
+            android:name="movie"
+            app:argType="com.example.healthyvirtuosotest.arch.movies.domain.model.Movie" />
+    </fragment>
 </navigation>

@@ -1,7 +1,10 @@
 package com.example.healthyvirtuosotest.views.activities
 
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.example.healthyvirtuosotest.R
 import com.example.healthyvirtuosotest.core.abstraction.activity.BaseActivity
 import com.example.healthyvirtuosotest.databinding.ActivityMainBinding
@@ -14,6 +17,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.onCreate(savedInstanceState)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomBar)
         NavigationUI.setupWithNavController(bottomNavigationView, navigation.navController)
+
+        val appBarConfiguration = AppBarConfiguration(navigation.navController.graph)
+        findViewById<Toolbar>(R.id.toolbar).setupWithNavController(
+            navigation.navController,
+            appBarConfiguration
+        )
+
     }
 
     override fun getBindingClass(): ActivityMainBinding {
@@ -21,13 +31,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override val toolbarId: Int
-        get() = 0
+        get() = R.id.toolbar
     override val toolbarTitleId: Int
         get() = 0
     override val layoutResourceId: Int
         get() = R.layout.activity_main
     override var statusBarColor: Int
-        get() = 0
+        get() = android.R.color.black
         set(value) {}
     override val appBarId: Int
         get() = 0

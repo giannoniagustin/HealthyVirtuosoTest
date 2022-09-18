@@ -1,33 +1,38 @@
 package com.example.healthyvirtuosotest.arch.movies.domain.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Movie(
     val adult: Boolean = false,
-    val backdrop_path: String = "",
-    val belongs_to_collection: Any? = null,
+    val backdropPath: String = "",
+    val belongsToCollection: String? = null,
     val budget: Int = 0,
     val genres: List<Genre>? = null,
     val homepage: String = "",
     val id: Int? = null,
-    val imdb_id: String = "",
-    val original_language: String = "",
-    val original_title: String = "",
+    val imdbId: String = "",
+    val originalLanguage: String = "",
+    val originalTitle: String = "",
     val overview: String = "",
     val popularity: Double = 0.0,
-    val poster_path: Any? = null,
-    val production_companies: List<ProductionCompany>? = null,
-    val production_countries: List<ProductionCountry>? = null,
-    val release_date: String = "",
+    val posterPath: String? =
+        "",//http://www.cfpcemon.it/assets/camaleon_cms/image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef.png
+    val productionCompanies: List<ProductionCompany>? = null,
+    val productionCountries: List<ProductionCountry>? = null,
+    val releaseDate: String = "",
     val revenue: Int? = 0,
     val runtime: Int? = 0,
-    val spoken_languages: List<SpokenLanguage>? = null,
+    val spokenLanguages: List<SpokenLanguage>? = null,
     val status: String = "",
     val tagline: String = "",
     val title: String = "",
     val video: Boolean = false,
-    val vote_average: Double = 0.0,
-    val vote_count: Int = 0
-) {
-    companion object  {
+    val voteAverage: Double = 0.0,
+    val voteCount: Int = 0
+) : Parcelable {
+    companion object {
 
         fun dummyMovies(): List<Movie> {
             var movies: List<Movie> = listOf()
