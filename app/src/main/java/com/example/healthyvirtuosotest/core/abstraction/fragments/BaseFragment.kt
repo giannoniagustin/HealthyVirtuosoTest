@@ -61,7 +61,6 @@ abstract class BaseFragment<B : ViewBinding, A : BaseActivity<*>> : Fragment() {
      *
      * @param savedInstanceState Bundle
      */
-    protected abstract fun onCreateView(savedInstanceState: Bundle?)
     val navigationBar: BottomNavigationView?
         get() {
             return parent.get()?.navigationBar()

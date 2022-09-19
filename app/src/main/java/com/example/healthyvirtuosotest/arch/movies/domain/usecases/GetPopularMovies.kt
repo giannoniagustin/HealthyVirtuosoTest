@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class GetPopularMovies @Inject constructor(private val repository: MoviesRepository) {
 
-     operator fun invoke() = repository.getPopularMovies()
+    operator fun invoke() = repository.getPopularMovies()
 
 }
 

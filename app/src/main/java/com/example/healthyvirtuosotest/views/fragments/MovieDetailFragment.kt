@@ -24,8 +24,6 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivit
 
     override fun getBindingClass() = FragmentMovieDetailBinding.inflate(layoutInflater)
 
-    override fun onCreateView(savedInstanceState: Bundle?) {}
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

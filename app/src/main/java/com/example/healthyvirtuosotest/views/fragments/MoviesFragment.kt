@@ -34,9 +34,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
+        moviesViewModel.getMovies()
     }
 
     override fun onCreateView(
@@ -47,7 +45,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
         binding = getBindingClass()
         binding.rvMovies.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-
+        binding.button.setOnClickListener { moviesViewModel.getMovies() }
         binding.rvMovies.initGrid(
             dataSet = movieAdapter,
             span = 1,
@@ -64,6 +62,13 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
                     )
                 }
             })
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         moviesViewModel.movies.observe(viewLifecycleOwner) {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
@@ -77,18 +82,16 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
                 }
                 Resource.Status.ERROR -> {
                     dismissDialog()
+
                 }
             }
         }
-        return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun onResume() {
+        moviesViewModel.getMovies()
+        super.onResume()
     }
-
-    override fun onCreateView(savedInstanceState: Bundle?) {}
 }
 
 
