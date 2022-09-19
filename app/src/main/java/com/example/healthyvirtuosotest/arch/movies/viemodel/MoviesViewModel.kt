@@ -10,5 +10,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MoviesViewModel @Inject constructor(private val moviesUseCase: MoviesUseCase) : ViewModel() {
-    var movies: LiveData<Resource<List<Movie>>> = moviesUseCase.getPopularMovies()
+
+    val movies: LiveData<Resource<List<Movie>>> by lazy {
+        moviesUseCase.getPopularMovies()
+    }
 }

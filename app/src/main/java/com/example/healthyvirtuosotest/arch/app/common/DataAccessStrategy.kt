@@ -59,7 +59,6 @@ fun <A> serviceOperation(
 
     return liveData(Dispatchers.IO) {
         emit(Resource.loading())
-        delay(3000)
         val responseStatus: Resource<A> = networkCall.invoke()
         if (responseStatus.status == Resource.Status.ERROR) {
             emit(parseError.invoke(responseStatus))

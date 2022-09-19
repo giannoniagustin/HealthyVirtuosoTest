@@ -1,98 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="19dp"
-    android:layout_marginBottom="8dp"
-    android:background="@android:color/white"
-    android:paddingBottom="8dp">
+<layout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/img_card_view"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        app:cardCornerRadius="19dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="120:120"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <data>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <variable
+            name="movie"
+            type="com.example.healthyvirtuosotest.arch.movies.domain.model.Movie" />
+    </data>
 
-            <ImageView
-                android:id="@+id/img_movie"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter" />
-
-            <ProgressBar
-                android:id="@+id/pBar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true" />
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_card_view"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/white"
+        android:paddingBottom="8dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/img_card_view"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="19dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="120:120"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_movie"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="" />
+
+                <ProgressBar
+                    android:id="@+id/pBar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_movie"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/img_movie"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_card_view"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tv_item_movie"
                 style="@style/MidText_14_Black"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:maxLines="1"
+                android:text="@{movie.title}"
                 android:textColor="@color/color_black_222222"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text=" El Padrino" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_languague_text"
-                style="@style/SimpleTitle_12_Style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/original_language"
-                android:textColor="@color/color_black_222222" />
-
-            <TextView
-                android:id="@+id/tv_languague_text_value"
-                style="@style/SimpleTitle_12_Style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
-                android:textColor="@color/color_black_222222"
-                tools:text="Italian" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+            />
 
             <TextView
                 android:id="@+id/tv_original_title"
@@ -100,43 +80,69 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/original_title"
-                android:textColor="@color/color_black_222222" />
+                android:textColor="@color/color_black_222222"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_original_title_value"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/tv_original_title_value"
                 style="@style/BlackSimpleTitle_12_Style"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{movie.originalTitle}"
                 android:textColor="@color/color_black_222222"
-                tools:text="Grand Father" />
+                app:layout_constraintStart_toEndOf="@+id/tv_original_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_item_movie" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/tv_languague_text"
+                style="@style/SimpleTitle_12_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/original_language"
+                android:textColor="@color/color_black_222222"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_original_title" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_languague_text_value"
+                style="@style/SimpleTitle_12_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{movie.originalLanguage}"
+                android:textColor="@color/color_black_222222"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_languague_text"
+                app:layout_constraintStart_toEndOf="@+id/tv_languague_text"
+                tools:text="Italian" />
 
             <TextView
                 android:id="@+id/tv_homepage"
                 style="@style/SimpleTitle_12_Style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/home_page"
-                android:textColor="@color/color_black_222222" />
+                android:textColor="@color/color_black_222222"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_languague_text" />
 
             <TextView
                 android:id="@+id/tv_homepage_value"
                 style="@style/BlackSimpleTitle_12_Style"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_marginStart="8dp"
+                android:text="@{movie.homepage}"
                 android:textColor="@color/color_black_222222"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_homepage"
+                app:layout_constraintStart_toEndOf="@+id/tv_homepage"
                 tools:text="www.film.com" />
 
-        </LinearLayout>
-    </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

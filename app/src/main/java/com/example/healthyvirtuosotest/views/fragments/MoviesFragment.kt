@@ -32,6 +32,13 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
         return FragmentMoviesBinding.inflate(layoutInflater)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,7 +63,6 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
                         )
                     )
                 }
-
             })
         moviesViewModel.movies.observe(viewLifecycleOwner) {
             when (it.status) {
@@ -74,7 +80,6 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
                 }
             }
         }
-
         return binding.root
     }
 

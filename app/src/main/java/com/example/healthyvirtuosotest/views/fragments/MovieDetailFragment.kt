@@ -14,6 +14,7 @@ import com.bumptech.glide.request.target.Target
 import com.example.healthyvirtuosotest.R
 import com.example.healthyvirtuosotest.core.abstraction.fragments.BaseFragment
 import com.example.healthyvirtuosotest.core.extensions.gone
+import com.example.healthyvirtuosotest.core.extensions.visible
 import com.example.healthyvirtuosotest.databinding.FragmentMovieDetailBinding
 import com.example.healthyvirtuosotest.views.activities.MainActivity
 
@@ -32,6 +33,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivit
     ): View {
         binding = getBindingClass()
         binding.movie = args.movie
+        binding.pBar.visible()
         val requestListener = object : RequestListener<Drawable> {
             override fun onLoadFailed(
                 e: GlideException?,
@@ -39,6 +41,8 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivit
                 target: Target<Drawable>?,
                 isFirstResource: Boolean
             ): Boolean {
+                binding.imPoster.visible()
+                binding.pBar.gone()
                 return false
             }
 
@@ -49,6 +53,9 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivit
                 dataSource: DataSource?,
                 isFirstResource: Boolean
             ): Boolean {
+                binding.imPoster.visible()
+                binding.imPoster.setImageDrawable(resource)
+                binding.pBar.gone()
                 return true
             }
         }
@@ -57,7 +64,6 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivit
             .error(R.mipmap.ic_image_not_found)
             .listener(requestListener)
             .into(binding.imPoster)
-
 
         return binding.root
     }

@@ -15,10 +15,7 @@ import com.example.healthyvirtuosotest.databinding.MovieCardBinding
 
 open class MovieHolder(private val item: MovieCardBinding) : Holder(item) {
     open fun bind(movie: Movie) {
-        item.tvItemMovie.text = movie.title
-        item.tvHomepageValue.text = movie.homepage
-        item.tvOriginalTitleValue.text = movie.originalTitle
-        item.tvLanguagueTextValue.text = movie.originalLanguage
+        item.movie = movie
         val requestListener = object : RequestListener<Drawable> {
             override fun onLoadFailed(
                 e: GlideException?,
@@ -38,6 +35,7 @@ open class MovieHolder(private val item: MovieCardBinding) : Holder(item) {
                 isFirstResource: Boolean
             ): Boolean {
                 item.pBar.gone()
+                item.imgMovie.setImageDrawable(resource)
                 return true
             }
         }
