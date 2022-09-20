@@ -45,7 +45,6 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
         binding = getBindingClass()
         binding.rvMovies.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        binding.button.setOnClickListener { moviesViewModel.getMovies() }
         binding.rvMovies.initGrid(
             dataSet = movieAdapter,
             span = 1,
@@ -62,8 +61,6 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
                     )
                 }
             })
-
-
         return binding.root
     }
 
@@ -78,18 +75,15 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
                 }
                 Resource.Status.LOADING -> {
                     showDialog()
-
                 }
                 Resource.Status.ERROR -> {
                     dismissDialog()
-
                 }
             }
         }
     }
 
     override fun onResume() {
-        moviesViewModel.getMovies()
         super.onResume()
     }
 }

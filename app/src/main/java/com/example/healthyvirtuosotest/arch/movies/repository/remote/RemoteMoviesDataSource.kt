@@ -5,7 +5,6 @@ import com.example.healthyvirtuosotest.core.abstraction.app.BaseDataSource
 import javax.inject.Inject
 
 class MoviesRemoteDataSource @Inject constructor(
-    private val categoriesServices: MoviesServices
-) : BaseDataSource() {
-    suspend fun getPopularMovies() = getResultServices { categoriesServices.popularMovies() }
+    private val categoriesServices: MoviesServices) : BaseDataSource() {
+    suspend fun getPopularMovies() = getResultServices { categoriesServices.popularMovies("4113f3ad734e747a5b463cde8c55de42") }
 }

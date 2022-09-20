@@ -1,6 +1,5 @@
 package com.example.healthyvirtuosotest.core.di
 
-import com.example.healthyvirtuosotest.arch.movies.repository.service.MoviesServices
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,12 +14,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ApiModule {
-    private const val BASE_URL = "https://restcountries.eu/rest/v2/"
+    private const val BASE_URL = "https://api.themoviedb.org/3/"
 
     @Provides
     @Singleton
     @Named("ApiKey")
-    fun providerApiKey() = ""
+    fun providerApiKey() = "4113f3ad734e747a5b463cde8c55de42"
 
     @Singleton
     @Provides

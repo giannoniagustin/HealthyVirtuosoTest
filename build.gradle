@@ -4,19 +4,37 @@ buildscript {
         google()
         mavenCentral()
     }
-    ext.retrofit_version = '2.9.0'
-    ext.httplogging_version = '5.0.0-alpha.10'
-    ext.json_version = '2.9.1'
-    ext.junit_version = '4.13.2'
-    ext. nav_version = "2.5.1"
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.2'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10'
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.42'
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    ext {
+        retrofit_version = '2.9.0'
+        httplogging_version = '5.0.0-alpha.10'
+        json_version = '2.9.1'
+        junit_version = '4.13.2'
+        nav_version = "2.5.1"
+        toolsBuild_version = '7.2.2'
+        jetBrain_version = '1.7.10'
+        hiltPlugin_version = '2.42'
+        coroutines_version = '1.6.4'
+        androidxCore_version = '1.9.0'
+        appcompat_version = "1.5.1"
+        constraintLayout_version = '2.1.4'
+        legacySupport_version = '1.0.0'
+        navigation_version = '2.5.2'
+        lifecycle_version = '2.6.0-alpha02'
+        playServicesLocation_version = '20.0.0'
+        playServicesMap_version = '18.1.0'
+        gson_version = '2.9.1'
+        material_version = '1.6.1'
+        hiltdagger_version = '2.43.2'
+        glide_version = '4.13.2'
     }
 
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$toolsBuild_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$jetBrain_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltPlugin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    }
 
 
 }
