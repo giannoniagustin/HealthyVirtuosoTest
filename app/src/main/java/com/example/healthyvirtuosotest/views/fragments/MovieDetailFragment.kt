@@ -11,6 +11,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.healthyvirtuosotest.Constants
 import com.example.healthyvirtuosotest.R
 import com.example.healthyvirtuosotest.core.abstraction.fragments.BaseFragment
 import com.example.healthyvirtuosotest.core.extensions.gone
@@ -58,7 +59,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MainActivit
             }
         }
         Glide.with(this)
-            .load(args.movie.posterPath)
+            .load(Constants.baseImageUrl + args.movie.posterPath)
             .error(R.mipmap.ic_image_not_found)
             .listener(requestListener)
             .into(binding.imPoster)

@@ -21,7 +21,7 @@ interface AuthenticationCallBack<TUserEntity> {
     fun setAccountAuthenticatorResult(result: Bundle?)
 
     /**
-     * finish authentication response and set results before finish the activity
+     * finish authentication response and set movieResults before finish the activity
      */
     fun finishAuthenticatorResponse()
 

@@ -69,7 +69,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MainActivity>() {
         moviesViewModel.movies.observe(viewLifecycleOwner) {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    movieAdapter.dataSet = it.data?.toMutableList() ?: mutableListOf()
+                    movieAdapter.dataSet = it.data!!.movieResults.toMutableList()
                     binding.rvMovies.adapter = movieAdapter
                     dismissDialog()
                 }
