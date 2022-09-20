@@ -17,7 +17,7 @@ object RepositoryModule {
     @Singleton
     fun provideRepositoryMovies(
         moviesRemoteDataSource: MoviesRemoteDataSource,
-        moviesMappers: MoviesMappers
+        moviesMappers: MoviesMappers,
     ): MoviesRepository {
         return MoviesRepository(moviesRemoteDataSource, moviesMappers)
     }

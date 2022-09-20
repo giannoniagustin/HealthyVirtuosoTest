@@ -7,12 +7,11 @@ import javax.inject.Inject
 
 class MoviesRepository @Inject constructor(
     private val moviesRemoteDataSource: MoviesRemoteDataSource,
-    private val moviesMappers: MoviesMappers
+    private val moviesMappers: MoviesMappers,
 ) {
     fun getPopularMovies() = serviceOperation(
         networkCall = { moviesRemoteDataSource.getPopularMovies() },
         //   Resource.success(Movie.dummyMovies(), status = Resource.Status.SUCCESS)
-
         parseError = { moviesMappers.moviesError(response = it) }
     )
 }

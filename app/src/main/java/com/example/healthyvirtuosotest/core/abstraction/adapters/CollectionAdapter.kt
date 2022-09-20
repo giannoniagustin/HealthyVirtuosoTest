@@ -41,7 +41,7 @@ abstract class CollectionAdapter<M, H : Holder> : RecyclerView.Adapter<H> {
 
     protected constructor(
         context: Context,
-        dataSet: ArrayList<M>
+        dataSet: ArrayList<M>,
     ) {
         this.context = context
         this.dataSet = dataSet
@@ -50,7 +50,7 @@ abstract class CollectionAdapter<M, H : Holder> : RecyclerView.Adapter<H> {
     protected constructor(
         context: Context,
         dataSet: ArrayList<M>,
-        dataSetChangedCallBack: DataSetChangeCallBack<M>
+        dataSetChangedCallBack: DataSetChangeCallBack<M>,
     ) {
         this.context = context
         this.dataSet = dataSet

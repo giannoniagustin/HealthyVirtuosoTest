@@ -34,7 +34,7 @@ data class Movie(
     @SerializedName("vote_average")
     val voteAverage: Double = 0.0,
     @SerializedName("vote_count")
-    val voteCount: Int = 0
+    val voteCount: Int = 0,
 ) : Parcelable {
     companion object {
         fun dummyMovies(): List<Movie> {

@@ -30,7 +30,7 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(),
 
     protected lateinit var binding: B
 
-    val dialog: ProgressDialog by lazy {
+    private val dialog: ProgressDialog by lazy {
         ProgressDialog(context = this)
     }
 
@@ -66,7 +66,7 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(),
         return findViewById(R.id.bottomBar)
     }
 
-    fun hideKeyword() {
+    private fun hideKeyword() {
         try {
             val view = this.currentFocus
             if (view != null) {

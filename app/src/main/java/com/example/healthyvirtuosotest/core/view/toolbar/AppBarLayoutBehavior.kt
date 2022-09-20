@@ -19,7 +19,7 @@ class AppBarLayoutBehavior : AppBarLayout.Behavior {
         directTargetChild: View,
         target: View,
         nestedScrollAxes: Int,
-        type: Int
+        type: Int,
     ): Boolean {
         return isEnabled && super.onStartNestedScroll(
             parent,

@@ -7,7 +7,7 @@ enum class ErrorCode(var code: Int = -1, var message: Int = R.string.app_name) {
 
     UNKNOWN(1000000001, message = R.string.error_unknown),
 
-    SUCCES(200, message = R.string.api_success),
+    SUCCESS(200, message = R.string.api_success),
 
     INVALID_SERVICE(501),
 

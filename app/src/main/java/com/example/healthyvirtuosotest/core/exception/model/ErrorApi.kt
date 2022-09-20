@@ -11,5 +11,5 @@ class ErrorApi(
     var errorMessage: String? = null,
     @SerializedName("errorDevMessage")
     var devError: String? = null,
-    var codeError: ErrorCode = ErrorCode.UNKNOWN
+    var codeError: ErrorCode = ErrorCode.UNKNOWN,
 ) : Serializable

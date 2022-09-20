@@ -16,7 +16,7 @@ abstract class BaseDialogFragment : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         rootView = supportBinding(inflater, container) ?: inflater.inflate(
             layoutResource,

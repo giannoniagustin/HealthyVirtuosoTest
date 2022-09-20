@@ -8,7 +8,7 @@ class Resource<out T>(
     val data: T?,
     val errorApi: ErrorApi? = null,
     val message: String? = null,
-    val exception: Exception? = null
+    val exception: Exception? = null,
 ) {
 
     enum class Status {
@@ -33,7 +33,7 @@ class Resource<out T>(
             data: T? = null,
             exception: Exception? = null,
             errorApi: ErrorApi? = null,
-            status: Status = Status.ERROR
+            status: Status = Status.ERROR,
         ): Resource<T> {
             return Resource(
                 status = status,

@@ -30,10 +30,6 @@ abstract class BaseFragment<B : ViewBinding, A : BaseActivity<*>> : Fragment() {
         WeakReference(this.activity as A)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     abstract fun getBindingClass(): B
 
     /**

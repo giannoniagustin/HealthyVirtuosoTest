@@ -43,7 +43,7 @@ import kotlin.reflect.KProperty
 fun ifElseCondition(
     condition: () -> Boolean,
     blockTrue: () -> Unit,
-    blockFalse: () -> Unit
+    blockFalse: () -> Unit,
 ) {
     if (condition.invoke()) {
         blockTrue.invoke()
@@ -144,7 +144,7 @@ fun AppCompatImageView.loadImage(context: Context, url: String, view: View? = nu
                 e: GlideException?,
                 model: Any?,
                 target: com.bumptech.glide.request.target.Target<Drawable>?,
-                isFirstResource: Boolean
+                isFirstResource: Boolean,
             ): Boolean {
                 return false
             }
@@ -154,7 +154,7 @@ fun AppCompatImageView.loadImage(context: Context, url: String, view: View? = nu
                 model: Any?,
                 target: com.bumptech.glide.request.target.Target<Drawable>?,
                 dataSource: DataSource?,
-                isFirstResource: Boolean
+                isFirstResource: Boolean,
             ): Boolean {
                 image.setImageDrawable(resource)
                 image.clipToOutline = true
@@ -174,16 +174,6 @@ fun SearchView.onCleanLister(listener: View.OnClickListener) {
     }
 }
 
-fun SearchView.changeHint(typeface: Typeface) {
-    val id: Int = this.context
-        .resources
-        .getIdentifier("android:id/search_src_text", null, null)
-    val textView = this.findViewById(id) as TextView
-    textView.typeface = typeface
-
-
-}
-
 fun Map<String, Any>.toBundle(): Bundle {
     return Bundle().apply {
         forEach {
@@ -199,7 +189,7 @@ fun BigDecimal.toCurrencyFormant(): String {
 
 fun ToggleButton.disable(
     callback: CompoundButton.OnCheckedChangeListener,
-    checked: Boolean = false
+    checked: Boolean = false,
 ) {
     this.setOnCheckedChangeListener(null)
     this.isChecked = checked
@@ -270,7 +260,7 @@ fun <M, H : Holder> RecyclerView.initGrid(
     dataSet: CollectionAdapter<M, H>,
     orientation: Int = RecyclerView.VERTICAL,
     span: Int = 2,
-    onItemClickListener: CollectionAdapter.OnItemClickListener<M, H>? = null
+    onItemClickListener: CollectionAdapter.OnItemClickListener<M, H>? = null,
 ) {
     this.setHasFixedSize(true)
     this.layoutManager = GridLayoutManager(context, span, orientation, false)
@@ -292,12 +282,12 @@ fun decodeErrorApi(errorCode: ErrorCode): ErrorApi {
 
     return when (errorCode.code) {
 
-        ErrorCode.SUCCES.code -> {
+        ErrorCode.SUCCESS.code -> {
             ErrorApi(
                 statusCode = 200,
                 devError = "Success.",
                 errorMessage = "Success",
-                codeError = ErrorCode.SUCCES
+                codeError = ErrorCode.SUCCESS
             )
         }
 

@@ -36,24 +36,7 @@ abstract class BaseDataSource {
         call()
     }
 
-    protected suspend fun <T> executeMappers(call: suspend () -> T): Resource<T> {
-        return Resource.success(call(), Resource.Status.SUCCESS)
-    }
-
-    protected suspend fun <T> executeProcessSingle(call: suspend () -> Resource<T>): Resource<T> {
-        return call()
-    }
-
-    protected suspend fun <T> executeMappersError(call: suspend () -> Resource<T>): Resource<T> {
-        return call()
-    }
-
     protected suspend fun <T> executeProcess(call: suspend () -> T): T {
         return call()
-    }
-
-
-    protected suspend fun <T> executeQueryDataBase(call: suspend () -> T): Resource<T> {
-        return Resource.success(call(), Resource.Status.SUCCESS)
     }
 }

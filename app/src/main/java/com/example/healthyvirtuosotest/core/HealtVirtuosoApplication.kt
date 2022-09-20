@@ -5,10 +5,7 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class HealtVirtuosoApplication : Application() {
-
     override fun onCreate() {
         super.onCreate()
-
     }
-
 }

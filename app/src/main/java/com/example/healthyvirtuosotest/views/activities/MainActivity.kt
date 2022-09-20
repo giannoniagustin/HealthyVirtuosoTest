@@ -7,6 +7,8 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.healthyvirtuosotest.R
 import com.example.healthyvirtuosotest.core.abstraction.activity.BaseActivity
+import com.example.healthyvirtuosotest.core.extensions.gone
+import com.example.healthyvirtuosotest.core.extensions.visible
 import com.example.healthyvirtuosotest.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +25,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             navigation.navController,
             appBarConfiguration
         )
-
+        navigation.navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.movieDetailFragment -> bottomNavigationView.gone()
+                else -> {
+                    bottomNavigationView.visible()
+                }
+            }
+        }
     }
 
     override fun getBindingClass(): ActivityMainBinding {
